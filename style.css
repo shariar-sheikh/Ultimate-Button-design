@@ -1,0 +1,74 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #0a0a0a;
+    overflow: hidden;
+}
+
+.futuristic-button {
+    padding: 20px 60px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #ff00ff, #00ccff);
+    border: none;
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    overflow: hidden;
+    transition: 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 30px rgba(0, 204, 255, 0.4);
+}
+
+.futuristic-button:hover {
+    transform: scale(1.1) rotate(1deg);
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.7), 0 0 40px rgba(0, 204, 255, 0.6), 0 0 50px rgba(255, 255, 0, 0.5);
+}
+
+.futuristic-button::before,
+.futuristic-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+    border-radius: inherit;
+    z-index: -1;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.futuristic-button::before {
+    filter: blur(8px);
+    animation: pulseEffect 4s infinite;
+}
+
+.futuristic-button::after {
+    opacity: 0;
+    transform: scale(1.2);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0));
+    transition: 0.5s;
+}
+
+.futuristic-button:hover::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@keyframes pulseEffect {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
